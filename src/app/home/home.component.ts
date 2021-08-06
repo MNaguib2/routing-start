@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import  { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private AuthService: AuthService) { }
 
   ngOnInit() {
   }
@@ -19,5 +20,11 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/servers', id, 'edit'], {queryParams: {allowEdit: '1'} , 
     fragment: 'Loading'});
     //this code to direct url with define all part in url on side
+  }
+  onLogOut(){
+    this.AuthService.logout();
+  }
+  onLogIn(){  
+    this.AuthService.login();
   }
 }

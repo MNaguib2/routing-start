@@ -1,4 +1,3 @@
-import { rejects } from "assert";
 
 export class AuthService {
     loggIn = false;
