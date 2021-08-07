@@ -13,15 +13,19 @@ export class ServerComponent implements OnInit{
   constructor(private serversService: ServersService,
      private route : ActivatedRoute,
      private router : Router) {
+       /* all this code comment to now we use server Resolver
       this.route.params.subscribe(data => {
         //console.log(data.id);     
         this.server = this.serversService.getServer(+data.id); 
         //console.log(this.server);
       })
+      //*/
       }
 
   ngOnInit() {    
-    
+    this.route.data.subscribe(data => {
+      this.server =  data['server'];
+    })
   }
   OnEdit(){
     this.router.navigate(['edit'], {relativeTo: this.route , queryParamsHandling: 'preserve'});
