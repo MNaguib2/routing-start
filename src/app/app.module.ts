@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,12 +11,14 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AppRoutingModule } from './app-routing-module';
+import { appRoutingModule } from './app-routing-module';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ServerResolver } from './servers/server/server-resolver.service';
+import { TestRouteComponent } from './test-route/test-route.component';
+import { testroute } from './test-route/test-routing';
 
 // const appRoutes: Routes = [
 //   { path: '', component: HomeComponent },
@@ -46,12 +47,14 @@ import { ServerResolver } from './servers/server/server-resolver.service';
     EditServerComponent,
     ServerComponent,
     PageNotFoundComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    TestRouteComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    appRoutingModule,
+    testroute
     //RouterModule.forRoot(appRoutes) // this code cancel to work instead of outsource file
   ],
   providers: [ServersService, AuthGuard, AuthService, CanDeactivateGuard, ServerResolver],

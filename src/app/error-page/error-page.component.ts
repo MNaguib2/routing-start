@@ -13,6 +13,7 @@ export class ErrorPageComponent implements OnInit {
   ngOnInit() {
     //this.errorMessage = this.route.snapshot.data['message']; 
     // if any change in url with not reload page use subscribe
+    alert(this.route.snapshot.url);
     this.route.data.subscribe(data => {
       this.errorMessage = data['message'];
     })
